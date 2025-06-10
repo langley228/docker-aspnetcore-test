@@ -1,0 +1,23 @@
+{
+    // 參考文件：https://go.microsoft.com/fwlink/?LinkId=733558
+    // 關於 tasks.json 格式的說明
+    "version": "2.0.0",
+    "tasks": [
+        {
+            "label": "build", // 建置任務
+            "type": "shell",
+            "command": "dotnet",
+            "args": [
+                "build",
+                "${workspaceFolder}/DockerAspNetCoreTest.Api/DockerAspNetCoreTest.Api.csproj"
+            ],
+            "group": "build",
+            "presentation": {
+                // 只有發生未預期錯誤時才顯示輸出
+                "reveal": "silent"
+            },
+            // 使用 MS 編譯器的錯誤/警告/資訊偵測模式
+            "problemMatcher": "$msCompile"
+        }
+    ]
+}

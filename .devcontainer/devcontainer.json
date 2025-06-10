@@ -1,0 +1,22 @@
+{
+  "name": "ASP.NET Core Dev Container",
+  "image": "mcr.microsoft.com/dotnet/sdk:8.0",
+  "appPort": [
+    5000,      // HTTP 預設埠
+    5001       // HTTPS 預設埠
+  ],
+  "customizations": {
+    "vscode": {
+      "settings": {
+        "dotnet.enableHotReload": true // 啟用 .NET Hot Reload
+      },
+      "extensions": [
+        "ms-dotnettools.csharp",        // C# 開發支援
+        "ms-azuretools.vscode-docker"   // Docker 支援
+      ]
+    }
+  },
+  // 建立開發用 HTTPS 憑證並還原 NuGet 套件
+  "postCreateCommand": "dotnet dev-certs https && dotnet restore",
+  "remoteUser": "root" // 以 root 身份執行容器
+}
